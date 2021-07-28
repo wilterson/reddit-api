@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "@nuxtjs/eslint-config-typescript",
+    "prettier",
+    "prettier/vue",
+    "plugin:prettier/recommended",
+    "plugin:nuxt/recommended"
+  ],
+  "plugins": ["prettier"],
+  // add your custom rules here
+  "rules": {
+    "no-console": "off", // process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "no-debugger": "off", // process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "class-methods-use-this": "off",
+    "max-len": "off",
+    "arrow-parens": "off",
+    "object-curly-newline": "off",
+    "@typescript-eslint/camelcase": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "no-param-reassign": "off",
+    "no-unused-expressions": "off",
+    "import/no-duplicates": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "no-confusing-arrow": "off",
+    "no-mutable-exports": "off",
+    "comma-dangle": "off",
+    "no-underscore-dangle": "off",
+    "no-return-assign": "off",
+    "camelcase": "off"
+  }
+}

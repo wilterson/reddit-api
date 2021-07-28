@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  db:
+    build: .docker/postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=reddit_api
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
+    network_mode: "bridge"
+
+  app:
+    build: .
+    entrypoint: ./.docker/entrypoint.sh
+    volumes:
+      - .:/home/node/app
+    ports:
+      - "3000:3000"
+    network_mode: "bridge"
+    depends_on:
+      - db
