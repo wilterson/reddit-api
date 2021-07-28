@@ -15,5 +15,5 @@
     "sourceMap": true
   },
   "include": ["src"],
-  "exclude": ["dist", ".docker", "node_modules"]
+  "exclude": ["build", ".docker", "node_modules"]
 }

@@ -6,6 +6,8 @@
   "scripts": {
     "start": "ts-node src/server.ts",
     "dev": "nodemon src/server.ts",
+    "tsc": "tsc",
+    "build": "node build/server.js",
     "lint": "eslint --fix src",
     "test": "mocha --exit"
   },
