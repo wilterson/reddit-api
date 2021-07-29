@@ -2,12 +2,12 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
 
 const config: PostgresConnectionOptions = {
   type: 'postgres',
-  host: '172.17.0.3',
-  database: 'nest_api',
-  username: 'postgres',
-  password: 'root',
-  entities: ['dist/src/**/*.entity.js'],
-  migrations: ['dist/src/db/migrations/*.js'],
+  host: process.env.DBHOST || 'db',
+  database: process.env.DBDATABASE || 'reddit_api',
+  username: process.env.DBUSERNAME || 'postgres',
+  password: process.env.DBPASSWORD || 'docker',
+  entities: ['**/src/entity/*{.ts,.js}'],
+  migrations: ['build/src/db/migrations/*.js'],
   cli: {
     migrationsDir: 'src/db/migrations',
   },

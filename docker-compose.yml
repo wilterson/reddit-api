@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
   db:
+    container_name: "reddit_api_db"
     build: .docker/postgres
     ports:
       - "5432:5432"
@@ -20,6 +21,8 @@ services:
       - .:/home/node/app
     ports:
       - "3000:3000"
-    network_mode: "bridge"
-    depends_on:
+    environment:
+      - DBHOST=db
+    links:
       - db
+    network_mode: "bridge"
