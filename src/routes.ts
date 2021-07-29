@@ -1,15 +1,10 @@
 import 'reflect-metadata';
 import { Router, Request, Response } from 'express';
-import api from './api';
+
+import { listPosts } from './controller/PostController'
 
 const routes = Router();
 
-routes.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'Reddit API'
-  });
-});
-
-routes.use('/api/v1', api);
+routes.get('/posts', listPosts);
 
 export default routes;
