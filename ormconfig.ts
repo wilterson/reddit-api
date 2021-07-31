@@ -1,6 +1,7 @@
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
 const config: PostgresConnectionOptions = {
+  name: 'default',
   type: 'postgres',
   host: process.env.DBHOST || 'db',
   database: process.env.DBDATABASE || 'reddit_api',
@@ -9,7 +10,7 @@ const config: PostgresConnectionOptions = {
   entities: ['**/src/entity/*{.ts,.js}'],
   migrations: ['build/src/db/migrations/*.js'],
   cli: {
-    migrationsDir: 'src/db/migrations',
+    migrationsDir: 'src/migrations',
   },
   synchronize: true,
 };
