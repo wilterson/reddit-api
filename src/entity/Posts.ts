@@ -1,10 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Posts {
 
-  @PrimaryGeneratedColumn()
-  id: number;
+  @Column()
+  @PrimaryColumn()
+  id: string;
 
   @Column()
   title: string;
@@ -13,13 +14,10 @@ export class Posts {
   author: string;
 
   @Column({type: "int"})
-  up_votes: number;
+  ups: number;
 
   @Column({type: "int"})
   comments: number;
-
-  @Column({type: "timestamp"})
-  edited_at: Date;
 
   @Column({type: "timestamp"})
   created_at: Date;
