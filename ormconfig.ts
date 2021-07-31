@@ -7,7 +7,8 @@ const config: PostgresConnectionOptions = {
   database: process.env.DBDATABASE || 'reddit_api',
   username: process.env.DBUSERNAME || 'postgres',
   password: process.env.DBPASSWORD || 'docker',
-  entities: ['**/src/entity/*{.ts,.js}'],
+  // entities: ['**/src/entity/*{.ts,.js}'],
+  entities: ['build/entity/**/*.js'],
   migrations: ['build/src/db/migrations/*.js'],
   cli: {
     migrationsDir: 'src/migrations',
