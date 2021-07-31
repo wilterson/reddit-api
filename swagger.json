@@ -1,0 +1,131 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Reddit API",
+    "description": "A simple API to fetch posts from reddit",
+    "contact": {
+      "name": "Wilterson Garcia",
+      "email": "wiltersongarcia@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "Local Environment"
+    },
+    {
+      "url": "https://reddit-api.herokuapp.com/api/v1",
+      "description": "Live Demo Environment"
+    }
+  ],
+  "paths": {
+    "/posts": {
+      "get": {
+        "summary": "Get all posts",
+        "description": "List all posts",
+        "tags": [ "Post" ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Sort type, could it be 'ups' or 'comments'",
+            "required": false
+          },
+          {
+            "name": "date_start",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Start date to search for posts",
+            "required": true
+          },
+          {
+            "name": "date_end",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "End date to search for posts",
+            "required": true
+          }
+        ],
+        "responses":  {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "You must specify a valid date range."
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Get users",
+        "description": "Get a list of users",
+        "tags": [ "User" ],
+        "parameters": [{
+          "name": "sort",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          },
+          "description": "Sort type, could it be 'ups' or 'comments'",
+          "required": true
+        }],
+        "responses":  {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "ups": {
+            "type": "number"
+          },
+          "comments": {
+            "type": "number"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
