@@ -44,7 +44,7 @@ and then run:
 docker-compose up
 ```
 
-Now, you can access [localhost:3000/api/v1/docs](localhost:3000/api/v1/docs) to see the API Doc;
+Now, you can access [localhost:3000/api/v1/docs](http://localhost:3000/api/v1/docs) to see the API Doc;
 
 ## Cron Job
 
